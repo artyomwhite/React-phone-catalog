@@ -1,11 +1,16 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import { App } from './App';
+import { HashRouter as Router } from 'react-router-dom';
+import App from './App';
+import { CartContextProvider } from './components/contexts/CartContextProvider';
+import { FavContextProvider } from './components/contexts/FavContextProvider';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <CartContextProvider>
+      <FavContextProvider>
+        <App />
+      </FavContextProvider>
+    </CartContextProvider>
+  </Router>,
   document.getElementById('root'),
 );
